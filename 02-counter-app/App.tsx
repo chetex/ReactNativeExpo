@@ -1,22 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
+import PressableComponent from './components/PressableComponent';
 
 export default function App() {
-  // Create counter using useState
   const [count, setCount] = useState(0);
 
   return (
     <View style={styles.container}>
+      {/* Text strings */}
       <Text style={styles.textHuge}>{count}</Text>
 
-      // Create a button to increment the counter
-      <Pressable
-        style={styles.floatingButton}
-        onPress={() => setCount(count + 1)}
-      >
-        <Text style={{ color: 'white', fontSize: 24, alignContent: "center" }}>+1</Text>
-      </Pressable>
+      <PressableComponent onPress={() => setCount(count + 1)}>
+        <Text>Increment</Text>
+      </PressableComponent>
+
+      <PressableComponent onPress={() => setCount(count - 1)}>
+        <Text>Decrement</Text>
+      </PressableComponent>
 
       <StatusBar style="auto" />
     </View>
@@ -37,7 +38,6 @@ const styles = StyleSheet.create({
     color: 'red',
   },
 
-  // Move the button to the bottom of the screen
   floatingButton: {
     position: 'absolute',
     bottom: 20,
@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
     width: 60,
-    height: 60, 
+    height: 60
   },
 });
