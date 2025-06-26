@@ -6,24 +6,38 @@ import PressableComponent from './components/PressableComponent';
 export default function App() {
   const [count, setCount] = useState(0);
 
+  {/* Define an array of button configurations, each with its own ID, label, and actions */}
+  const buttonsConfig = [
+    {
+      id: 'decrementButton',
+      label: 'Decrement',
+      onPressAction: () => setCount(prevCount => prevCount - 1),
+      onLongPressAction: () => setCount(-1),
+    },
+    {
+      id: 'incrementButton',
+      label: 'Increment',
+      onPressAction: () => setCount(prevCount => prevCount + 1),
+      onLongPressAction: () => setCount(0),
+    },
+  ];
+
   return (
-    <View style={styles.container}>
-      {/* Text strings */}
+    <View style={styles.appContainer}>
       <Text style={styles.textHuge}>{count}</Text>
 
-      <PressableComponent 
-        onPress={() => setCount(count + 1)}
-        onLongPress={() => setCount(0)}
-        style={[styles.container, styles.positionRight]}>
-        <Text>Increment</Text>
-      </PressableComponent>
-
-      <PressableComponent 
-        onPress={() => setCount(count - 1)}
-        onLongPress={() => setCount(-1)}
-        style={[styles.container, styles.positionLeft]}>
-        <Text>Decrement</Text>
-      </PressableComponent>
+      <View style={styles.buttonContainer}>
+        {/* Iterate over the buttonsConfig array to render each button */}
+        {buttonsConfig.map(button => (
+          <PressableComponent 
+            key={button.id}
+            onPress={button.onPressAction}
+            onLongPress={button.onLongPressAction}
+            style={styles.button}>
+            <Text>{button.label}</Text>
+          </PressableComponent>
+        ))}
+      </View>
 
       <StatusBar style="auto" />
     </View>
@@ -31,29 +45,32 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'blue',
-    borderRadius: 10,
-    padding: 10,
-    margin: 10,
+  appContainer: {
+    flex: 1,
+    backgroundColor: '#34495e',
+    justifyContent: 'flex-end',
+    padding: 20,
   },
 
   textHuge: {
-    fontSize: 40,
+    fontSize: 80,
     color: 'white',
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 40,
+    alignContent: 'center',
   },
 
-  positionRight: {
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
   },
 
-  positionLeft: {
-    position: 'absolute',
-    bottom: 20,
-    left: 20,
+  button: {
+    backgroundColor: '#2ecc71',
+    borderRadius: 10,
+    padding: 20,
+    alignItems: 'center',
+    width: '45%',
   },
 });

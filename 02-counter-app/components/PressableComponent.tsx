@@ -1,20 +1,20 @@
 import React from 'react';
-import { Pressable, PressableProps } from 'react-native';
-import { StyleSheet } from 'react-native';
+import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
 // Define the type for the props of the PressableComponent
 // It extends PressableProps to include all the properties of a Pressable component
-interface PressableComponentProps extends PressableProps {
+interface PressableComponentProps extends TouchableOpacityProps {
   children: React.ReactNode; 
 }
 
 // Styles can be defined here or imported from a separate file
 export default function PressableComponent(props: PressableComponentProps) {
   return (
-    <Pressable
+    <TouchableOpacity
+      activeOpacity={0.7} // Optional: Adjust the opacity when pressed
       {...props}
     >
       {props.children}
-    </Pressable>
+    </TouchableOpacity>
   );
 }
