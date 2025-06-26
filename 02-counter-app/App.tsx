@@ -11,11 +11,17 @@ export default function App() {
       {/* Text strings */}
       <Text style={styles.textHuge}>{count}</Text>
 
-      <PressableComponent onPress={() => setCount(count + 1)}>
+      <PressableComponent 
+        onPress={() => setCount(count + 1)}
+        onLongPress={() => setCount(0)}
+        style={[styles.container, styles.positionRight]}>
         <Text>Increment</Text>
       </PressableComponent>
 
-      <PressableComponent onPress={() => setCount(count - 1)}>
+      <PressableComponent 
+        onPress={() => setCount(count - 1)}
+        onLongPress={() => setCount(-1)}
+        style={[styles.container, styles.positionLeft]}>
         <Text>Decrement</Text>
       </PressableComponent>
 
@@ -26,31 +32,28 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'blue',
+    borderRadius: 10,
+    padding: 10,
+    margin: 10,
   },
 
   textHuge: {
-    fontSize: 70,
-    fontWeight: 'bold',
-    color: 'red',
+    fontSize: 40,
+    color: 'white',
+    textAlign: 'center',
+    marginBottom: 20,
   },
 
-  floatingButton: {
+  positionRight: {
     position: 'absolute',
     bottom: 20,
     right: 20,
-    backgroundColor: '#007AFF',
-    padding: 10,
-    borderRadius: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    width: 60,
-    height: 60
+  },
+
+  positionLeft: {
+    position: 'absolute',
+    bottom: 20,
+    left: 20,
   },
 });
