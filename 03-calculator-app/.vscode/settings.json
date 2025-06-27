@@ -3,5 +3,10 @@
     "source.fixAll": "explicit",
     "source.organizeImports": "explicit",
     "source.sortMembers": "explicit"
-  }
+  },
+  "typescript.format.semicolons": "insert",
+  
+  // Esta configuración es específica para Prettier.
+  // Con "semi": true, le indicas a Prettier que añada punto y coma al final de las líneas.
+  "prettier.semi": true
 }
