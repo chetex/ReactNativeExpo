@@ -1,6 +1,7 @@
-import { Colors } from '@/constants/Colors';
+import { globalStyles } from '@/styles/global-styles';
 import { useFonts } from 'expo-font';
 import { Slot } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View } from 'react-native';
 
@@ -16,8 +17,10 @@ const RootLayout = () => {
   }
 
   return (
-    <View style={{ flex: 1, backgroundColor: Colors.backGround, padding: 20 }}>
+    <View style={ globalStyles.viewContainer }>
       <Slot />
+
+      <StatusBar style="light" /> 
     </View>
   )
 }
