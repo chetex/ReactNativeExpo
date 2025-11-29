@@ -12,6 +12,7 @@ export const ThemeButton: React.FC<ThemeButtonProps> = ({ buttonNumber }) => {
     <Pressable style={globalStyles.themeButton} onPress={() => console.log(buttonNumber)}>
         <Text style={globalStyles.buttonText}>{buttonNumber}</Text>
     </Pressable>
+
+      <Pressable style={ }
   );
 }
-// This component is a button that can be used in the calculator app.
