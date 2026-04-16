@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "skills": {
+    "skill-creator": {
+      "source": "bobmatnyc/claude-mpm-skills",
+      "sourceType": "github",
+      "computedHash": "e003d213ae205f568b06f3bbb7cd9abeb43ff23195f92d2d63145ceedc52f3d6"
+    },
+    "vercel-react-native-skills": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "computedHash": "41d24eafa7c3d82e270439808f7cfbc4d51aeb2d14f2809a2267c16275784d06"
+    }
+  }
+}
